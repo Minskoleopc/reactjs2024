@@ -1,17 +1,89 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from "react"
+import ReactDOM from "react-dom/client"
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+let data = [
+    {
+        name: "pizza spinach",
+        price: 120,
+        size: "medium"
+    },
+    {
+        name: "pizza mushroom",
+        price: 155,
+        size: "medium"
+    }
+    ,
+    {
+        name: "pizza paneer",
+        price: 155,
+        size: "large"
+    },
+    {
+        name: "pizza onion",
+        price: 166,
+        size: "medium"
+    }
+
+
+]
+
+
+
+// functional component ----> render
+function App() {
+    return (
+        <div>
+            <Header></Header>
+            <Menu></Menu>
+            <Footer></Footer>
+        </div>
+    )
+}
+
+
+function Menu() {
+
+    let style = { color: 'red', fontSize: "48px", textTransform: "uppercase" }
+    // data , logic , apperance
+    //  api    js     html css
+    // JSX
+    return (
+        <div>
+            <h1 style={style}>Menu</h1>
+            <Pizza></Pizza>
+            <Pizza></Pizza>
+            <Pizza></Pizza>
+            <Pizza></Pizza>
+        </div>
+    )
+}
+
+function Pizza() {
+    let style = { color: "green" }
+    return (
+        <div>
+            <h1 style={style}>{data[0].name}</h1>
+            <p style={style}>{data[0].price}</p>
+            <p style={style}>{data[0].size}</p>
+        </div>
+    )
+
+}
+
+function Header() {
+    // data , logic , apperance
+    //  api    js     html css
+    return <h1>Header</h1>
+
+}
+
+function Footer() {
+    // data , logic , apperance
+    //  api    js     html css
+    return <h1>Footer</h1>
+
+}
+
+const root = ReactDOM.createRoot(document.querySelector("#root"))
+root.render(<App />)
